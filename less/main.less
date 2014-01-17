@@ -1,0 +1,230 @@
+@import '../vendor/bootstrap/less/bootstrap.less';
+
+@import 'utils.less';
+@import 'mixins.less';
+@import 'fonts.less';
+
+@font-main: 'Muli';
+@font-header: 'Montserrat';
+@main-color: #404040;
+
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: @font-header;
+}
+
+body {
+  font-family: @font-main;
+  font-size: 22px;
+  line-height: 1.428571429;
+  color: @main-color;
+  background-color: #ffffff;
+}
+
+a, a:hover, a:active {
+  text-decoration: none;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted #fff;
+}
+
+.wrap {
+  position: relative;
+  width: 100%;
+}
+
+.header-container {
+  // background-image: url('../img/backgrounds/winter.jpg');
+  // background-size: cover;
+  // background-repeat: no-repeat;
+}
+
+.logo-text {
+  font-family: 'Oswald Book';
+}
+
+.navbar-main-header {
+  // background-color: rgba(0,0,0,0.1);
+  border-radius: 0;
+  margin-bottom: 0;
+
+  .logo-container {
+    display: inline-block;
+    padding: 10px 15px;
+  }
+
+  .logo {
+    height: 30px;
+  }
+
+  .logo-text {
+    font-size: 24px;
+    vertical-align: middle;
+  }
+}
+
+.main-header {
+  // color: #fff;
+  .main-image {
+    @media (max-width: @screen-xs-max) {
+      text-align: center;
+    }
+  }
+
+  .main-title-container {
+    @media (max-width: @screen-xs-max) {
+      text-align: center;
+    }
+
+
+    .main-title {
+      display: inline-block;
+      margin-left: 10px;
+      font-size: 22px;
+      .vertical-center();
+
+      @media (max-width: @screen-xs-max) {
+        margin-left: auto;
+        position: static;
+        .translate(0,0);
+      }
+
+      .buttons {
+        position: relative;
+        top:20px;
+        max-width: 400px;
+        margin-left: 0;
+        padding-left: 0;
+
+        a {
+          display: inline-block;
+        }
+
+        @media (max-width: @screen-xs-max) {
+          .container-fixed();
+          text-align: center;
+        }
+      }
+      .action-button {
+        width: 100%;
+        max-width: 160px;
+
+        @media (max-width: @screen-xs-max) {
+          margin: 10px 0;
+        }
+      }
+    }
+  }
+  .store {
+    height: 50px;
+  }
+}
+
+.features-highlight {
+  padding-top: 35px;
+  padding-bottom: 70px;
+  background-color: #d67b60;
+  color: #f8f8f8;
+
+  i {
+    margin-top: 35px;
+    margin-bottom: 35px;
+  }
+
+  h3 {
+    margin-bottom: 20px;
+  }
+
+  a {
+    @link: #bdf897;
+    color: @link;
+    &:hover,
+    &:active {
+      color: lighten(@link, 10%);
+    }
+  }
+}
+
+.features {
+  // padding: 35px 0;
+  background-color: #fff;
+
+  .feature {
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    img {
+      max-width: 100%;
+      max-height: 300px;
+    }
+  }
+}
+
+.action {
+  padding-top: 35px;
+  padding-bottom: 35px;
+  background-color: #f0eab0;
+  img {
+    max-width: 100%;
+    max-height: 300px;
+  }
+}
+
+.contact {
+  padding-top: 35px;
+  padding-bottom: 35px;
+
+  @linkColor: #fb3e09;
+
+  .name {
+    color: @linkColor;
+  }
+
+  .image-container {
+    img {
+      max-height: 150px;
+    }
+  }
+
+  a {
+    color: @linkColor;
+    &:hover {
+      color: lighten(@linkColor, 5%);
+    }
+    &:active {
+      color: lighten(@linkColor, 10%);
+    }
+  }
+}
+
+.email {
+  padding-top: 35px;
+  padding-bottom: 35px;
+  background-color: #d4f0f0;
+}
+
+.links {
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+.social {
+  padding-top: 35px;
+  padding-bottom: 35px;
+  a {
+    color: lighten(@main-color, 10%);
+  }
+
+  .facebook:hover {
+    color: blue;
+  }
+}
+
+.copyright {
+  padding-bottom: 20px;
+  font-size: 14px;
+  a {
+    color: @main-color;
+  }
+}
