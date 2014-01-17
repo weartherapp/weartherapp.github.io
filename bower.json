@@ -1,0 +1,8 @@
+{
+  "name": "wearther website",
+  "version": "1.0.0",
+  "dependencies": {
+    "bootstrap": "~3.0.3",
+    "font-awesome": "~4.0.3"
+  }
+}
