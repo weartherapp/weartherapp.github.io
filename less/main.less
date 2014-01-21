@@ -36,9 +36,9 @@ abbr[title] {
 }
 
 .header-container {
-  // background-image: url('../img/backgrounds/winter.jpg');
-  // background-size: cover;
-  // background-repeat: no-repeat;
+  background-image: url('../img/backgrounds/winter-blur.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .logo-text {
@@ -68,6 +68,10 @@ abbr[title] {
 .main-header {
   // color: #fff;
   .main-image {
+    img {
+      width: 100%;
+      max-width: 420px;
+    }
     @media (max-width: @screen-xs-max) {
       text-align: center;
     }
@@ -84,6 +88,10 @@ abbr[title] {
       margin-left: 10px;
       font-size: 22px;
       .vertical-center();
+
+      .logo-text {
+        color: #ff0019;
+      }
 
       @media (max-width: @screen-xs-max) {
         margin-left: auto;
@@ -105,6 +113,7 @@ abbr[title] {
         @media (max-width: @screen-xs-max) {
           .container-fixed();
           text-align: center;
+          margin-bottom: 60px;
         }
       }
       .action-button {
@@ -125,7 +134,7 @@ abbr[title] {
 .features-highlight {
   padding-top: 35px;
   padding-bottom: 70px;
-  background-color: #d67b60;
+  background-color: #ff1d13;
   color: #f8f8f8;
 
   i {
@@ -165,7 +174,8 @@ abbr[title] {
 .action {
   padding-top: 35px;
   padding-bottom: 35px;
-  background-color: #f0eab0;
+  background-color: #ff5046;
+  color: #fff;
   img {
     max-width: 100%;
     max-height: 300px;
@@ -202,7 +212,8 @@ abbr[title] {
 .email {
   padding-top: 35px;
   padding-bottom: 35px;
-  background-color: #d4f0f0;
+  color: #fff;
+  background-color: #6d6d6d;
 }
 
 .links {
@@ -214,7 +225,7 @@ abbr[title] {
   padding-top: 35px;
   padding-bottom: 35px;
   a {
-    color: lighten(@main-color, 10%);
+    color: lighten(@main-color, 10%);;
   }
 
   @facebook-color: #2c4486;
