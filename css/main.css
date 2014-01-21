@@ -7364,6 +7364,11 @@ abbr[title] {
   position: relative;
   width: 100%;
 }
+.header-container {
+  background-image: url('../img/backgrounds/winter-blur.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 .logo-text {
   font-family: 'Oswald Book';
 }
@@ -7381,6 +7386,10 @@ abbr[title] {
 .navbar-main-header .logo-text {
   font-size: 24px;
   vertical-align: middle;
+}
+.main-header .main-image img {
+  width: 100%;
+  max-width: 420px;
 }
 @media (max-width: 767px) {
   .main-header .main-image {
@@ -7401,6 +7410,9 @@ abbr[title] {
   -webkit-transform: translate(0, 50%);
   -ms-transform: translate(0, 50%);
   transform: translate(0, 50%);
+}
+.main-header .main-title-container .main-title .logo-text {
+  color: #ff0019;
 }
 @media (max-width: 767px) {
   .main-header .main-title-container .main-title {
@@ -7428,6 +7440,7 @@ abbr[title] {
     padding-left: 15px;
     padding-right: 15px;
     text-align: center;
+    margin-bottom: 60px;
   }
   .main-header .main-title-container .main-title .buttons:before,
   .main-header .main-title-container .main-title .buttons:after {
@@ -7461,7 +7474,7 @@ abbr[title] {
 .features-highlight {
   padding-top: 35px;
   padding-bottom: 70px;
-  background-color: #d67b60;
+  background-color: #ff1d13;
   color: #f8f8f8;
 }
 .features-highlight i {
@@ -7492,7 +7505,8 @@ abbr[title] {
 .action {
   padding-top: 35px;
   padding-bottom: 35px;
-  background-color: #f0eab0;
+  background-color: #ff5046;
+  color: #fff;
 }
 .action img {
   max-width: 100%;
@@ -7520,7 +7534,8 @@ abbr[title] {
 .email {
   padding-top: 35px;
   padding-bottom: 35px;
-  background-color: #d4f0f0;
+  color: #fff;
+  background-color: #6d6d6d;
 }
 .links {
   padding-top: 35px;
