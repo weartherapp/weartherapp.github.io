@@ -1,6 +1,27 @@
 @import '../bower_components/font-awesome/less/font-awesome.less';
-@import '../bower_components/bootstrap/less/bootstrap.less';
+// Bootstrap dependencies
 
+// Core variables and mixins
+@import '../bower_components/bootstrap/less/variables.less';
+@import '../bower_components/bootstrap/less/mixins.less';
+
+// Reset
+@import '../bower_components/bootstrap/less/normalize.less';
+@import '../bower_components/bootstrap/less/print.less';
+
+// Core CSS
+@import '../bower_components/bootstrap/less/scaffolding.less';
+@import '../bower_components/bootstrap/less/type.less';
+@import '../bower_components/bootstrap/less/code.less';
+@import '../bower_components/bootstrap/less/grid.less';
+@import '../bower_components/bootstrap/less/forms.less';
+@import '../bower_components/bootstrap/less/buttons.less';
+
+// Utils
+@import '../bower_components/bootstrap/less/utilities.less';
+@import '../bower_components/bootstrap/less/responsive-utilities.less';
+
+//////////////////////
 @import 'utils.less';
 @import 'mixins.less';
 @import 'fonts.less';
@@ -66,11 +87,13 @@ abbr[title] {
 }
 
 .main-header {
+  padding-top: 20px;
   // color: #fff;
   .main-image {
     img {
+      margin-left: auto;
       width: 100%;
-      max-width: 420px;
+      max-width: 360px;
     }
     @media (max-width: @screen-xs-max) {
       text-align: center;
@@ -82,13 +105,18 @@ abbr[title] {
       text-align: center;
     }
 
+    .logo-container {
+      text-align: center;
+      .logo {
+        height: 100px;
+      }
+    }
 
     .main-title {
       display: inline-block;
       margin-left: 10px;
       font-size: 22px;
       .vertical-center();
-
       .logo-text {
         color: #ff0019;
       }
@@ -180,6 +208,23 @@ abbr[title] {
     max-width: 100%;
     max-height: 300px;
   }
+
+  .action-title {
+    margin-bottom: 30px;
+  }
+
+  .action-buttons-container {
+    margin-top: 20px;
+    .action-button {
+      width: 100%;
+      max-width: 140px;
+
+      @media (max-width: @screen-xs-max) {
+        margin: 10px 0;
+      }
+    }
+  }
+
 }
 
 .contact {
@@ -214,6 +259,35 @@ abbr[title] {
   padding-bottom: 35px;
   color: #fff;
   background-color: #6d6d6d;
+  h3 {
+    margin-top: 0;
+  }
+
+  .email-form-container {
+    @media(min-width: @screen-sm-min) {
+      margin-top: 10px;
+    }
+
+    .email-form {
+      float: left;
+      @media (max-width: @screen-xs-max) {
+        margin-top: 10px;
+        display: block;
+        float: none;
+      }
+    }
+
+    .subscribe {
+      float: right;
+      @media (max-width: @screen-xs-max) {
+        display: block;
+        float: none;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
 }
 
 .links {
@@ -224,50 +298,56 @@ abbr[title] {
 .social {
   padding-top: 35px;
   padding-bottom: 35px;
+  @icon-color: #d61d2c;
   a {
-    color: lighten(@main-color, 10%);;
-  }
+    color: @icon-color;
 
-  @facebook-color: #2c4486;
-  @twitter-color: #1e9fe9;
-  @googleplus-color: #d43225;
-  @pinterest-color: #be0a1e;
-
-  .facebook {
-    &:hover {
-      color: @facebook-color;
-    }
-    &:active {
-      color: lighten(@facebook-color, 10%);
+    &:hover, &:active {
+      color: lighten(@icon-color, 7%);
     }
   }
 
-  .twitter {
-    &:hover {
-      color: @twitter-color;
-    }
-    &:active {
-      color: lighten(@twitter-color, 10%);
-    }
-  }
 
-  .googleplus {
-    &:hover {
-      color: @googleplus-color;
-    }
-    &:active {
-      color: lighten(@googleplus-color, 10%);
-    }
-  }
+  // @facebook-color: #2c4486;
+  // @twitter-color: #1e9fe9;
+  // @googleplus-color: #d43225;
+  // @pinterest-color: #be0a1e;
 
-  .pinterest {
-    &:hover {
-      color: @pinterest-color;
-    }
-    &:active {
-      color: lighten(@pinterest-color, 10%);
-    }
-  }
+  // .facebook {
+  //   &:hover {
+  //     color: @facebook-color;
+  //   }
+  //   &:active {
+  //     color: lighten(@facebook-color, 10%);
+  //   }
+  // }
+
+  // .twitter {
+  //   &:hover {
+  //     color: @twitter-color;
+  //   }
+  //   &:active {
+  //     color: lighten(@twitter-color, 10%);
+  //   }
+  // }
+
+  // .googleplus {
+  //   &:hover {
+  //     color: @googleplus-color;
+  //   }
+  //   &:active {
+  //     color: lighten(@googleplus-color, 10%);
+  //   }
+  // }
+
+  // .pinterest {
+  //   &:hover {
+  //     color: @pinterest-color;
+  //   }
+  //   &:active {
+  //     color: lighten(@pinterest-color, 10%);
+  //   }
+  // }
 
 
 }
