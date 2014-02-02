@@ -3976,7 +3976,7 @@ abbr[title] {
   width: 100%;
 }
 .header-container {
-  background-image: url('../img/backgrounds/winter-blur.jpg');
+  background-image: url('../img/backgrounds/winter.jpg');
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -4160,6 +4160,7 @@ abbr[title] {
 }
 .contact a {
   color: #fb3e09;
+  display: inline-block;
 }
 .contact a:hover {
   color: #fb5222;
