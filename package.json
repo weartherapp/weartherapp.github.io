@@ -1,6 +1,6 @@
 {
   "name": "wearther website",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "wearther website",
   "engines": {
     "node": "0.10.x",
