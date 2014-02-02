@@ -13,26 +13,6 @@ module.exports = function(grunt) {
     // Run your source code through JSHint's defaults.
     jshint: ['app/**/*.js'],
 
-    // This task simplifies working with CSS inside Backbone Boilerplate
-    // projects.  Instead of manually specifying your stylesheets inside the
-    // HTML, you can use `@imports` and this task will concatenate only those
-    // paths.
-    styles: {
-      // Out the concatenated contents of the following styles into the below
-      // development file path.
-      'dist/styles.css': {
-        // Point this to where your `index.css` file is location.
-        src: 'app/styles/index.css',
-
-        // The relative path to use for the @imports.
-        paths: ['app/styles'],
-
-        // Rewrite image paths during release to be relative to the `img`
-        // directory.
-        forceRelative: '/app/img/'
-      }
-    },
-
     // Minfiy the distribution CSS.
     cssmin: {
       main: {
@@ -68,16 +48,6 @@ module.exports = function(grunt) {
     },
 
     processhtml: {
-      staging: {
-        options: {
-          data: {
-            file: 'js/wearther-<%= pkg.version %>.js'
-          }
-        },
-        files: {
-          'build/staging/latest/public/index.html': ['public/index.html']
-        }
-      },
       production: {
         options: {
           data: {
@@ -91,64 +61,16 @@ module.exports = function(grunt) {
       }
     },
 
-    concat: {
-      main: {
-        src: [
-          'public/js/main.js',
-          'public/js/Util.js',
-
-          'public/js/modules/errordisplay/ErrorDisplay.js',
-          'public/js/modules/settings/Settings.js',
-          'public/js/modules/router/Router.js',
-
-          'public/js/modules/location/models/location.js',
-          'public/js/modules/location/views/location.js',
-          'public/js/modules/location/Location.js',
-
-          'public/js/modules/temperature/models/temperature.js',
-          'public/js/modules/temperature/views/temperature.js',
-          'public/js/modules/temperature/Temperature.js',
-
-          'public/js/modules/combination/models/combination.js',
-          'public/js/modules/combination/collections/combinations.js',
-          'public/js/modules/combination/views/combination.js',
-          'public/js/modules/combination/views/combinations.js',
-          'public/js/modules/combination/Combination.js',
-
-          'public/js/modules/listings/models/listing.js',
-          'public/js/modules/listings/collections/listings.js',
-          'public/js/modules/listings/views/listing.js',
-          'public/js/modules/listings/views/listings.js',
-          'public/js/modules/listings/Listings.js',
-
-          'public/js/WeartherApp.js'
-        ],
-
-        dest: '<%= grunt.option("path") %>public/js/wearther-<%= pkg.version %>.js'
-      }
-    },
-
     // Move vendor and app logic during a build.
     copy: {
-      staging: {
-        files: [{
-          expand: true,
-          dot: true,
-          src: ['public/**', 'server/**',
-              '!public/js/**', '!public/index.html',
-              '!**/bower_components/**', '!**.DS_Store',
-              'package.json', 'Procfile'],
-          dest: '<%= grunt.option("path") %>'
-        }]
-      },
       production: {
         files: [{
           expand: true,
           dot: true,
-          src: ['public/**', 'server/**',
-              '!public/js/**', '!public/index.html',
-              '!**/bower_components/**', '!**.DS_Store',
-              'package.json', '.ebextensions/**'],
+          src: ['**', '!less/**',
+              '!build/**', '!js/**', '!node_modules/**',
+              '!Gruntfile.js', '!*.sublime*',
+              '!bower_components/**', '!**.DS_Store'],
           dest: '<%= grunt.option("path") %>'
         }]
       }
@@ -200,77 +122,6 @@ module.exports = function(grunt) {
           dot: true,
           src: ['**']
         }]
-      }
-    },
-
-    // Unit testing is provided by Karma.  Change the two commented locations
-    // below to either: mocha, jasmine, or qunit.
-    karma: {
-      options: {
-        basePath: process.cwd(),
-        singleRun: true,
-        captureTimeout: 7000,
-        autoWatch: true,
-        logLevel: 'ERROR',
-
-        reporters: ['dots', 'coverage'],
-        browsers: ['PhantomJS'],
-
-        // Change this to the framework you want to use.
-        frameworks: ['mocha'],
-
-        plugins: [
-          'karma-jasmine',
-          'karma-mocha',
-          'karma-qunit',
-          'karma-phantomjs-launcher',
-          'karma-coverage'
-        ],
-
-        preprocessors: {
-          'app/**/*.js': 'coverage'
-        },
-
-        coverageReporter: {
-          type: 'lcov',
-          dir: 'test/coverage'
-        },
-
-        files: [
-          // You can optionally remove this or swap out for a different expect.
-          'vendor/bower/chai/chai.js',
-          'vendor/bower/requirejs/require.js',
-          'test/runner.js',
-
-          { pattern: 'app/**/*.*', included: false },
-          // Derives test framework from Karma configuration.
-          {
-            pattern: 'test/<%= karma.options.frameworks[0] %>/**/*.spec.js',
-            included: false
-          },
-          { pattern: 'vendor/**/*.js', included: false }
-        ]
-      },
-
-      // This creates a server that will automatically run your tests when you
-      // save a file and display results in the terminal.
-      daemon: {
-        options: {
-          singleRun: false
-        }
-      },
-
-      // This is useful for running the tests just once.
-      run: {
-        options: {
-          singleRun: true
-        }
-      }
-    },
-
-    coveralls: {
-      options: {
-        coverage_dir: 'test/coverage/PhantomJS 1.9.2 (Linux)/'
       }
     },
 
@@ -333,26 +184,14 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('staging', [
-    'type:staging',
-    'clean',
-    'concat:main',
-    'processhtml:staging',
-    'copy:staging',
-    'uglify:main',
-    'cssmin:main'
-  ]);
-
   grunt.registerTask('production', [
     'type:production',
     'clean',
-    'concat:main',
+    'less',
     'processhtml:production',
     'copy:production',
     'uglify:main',
-    'cssmin:main',
-    // compress does not include hidden files (.ebextensions)
-    'compress:production'
+    'cssmin:main'
   ]);
 
   grunt.registerTask('website', [
