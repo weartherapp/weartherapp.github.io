@@ -1,6 +1,6 @@
 build
 node_modules
-project.sublime-workspace
+*.sublime-workspace
 npm-debug.log
 bower_components
 .DS_Store
