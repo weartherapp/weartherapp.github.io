@@ -1,1 +1,1 @@
-# wearther website
+# Wea(r)ther App Static Website
